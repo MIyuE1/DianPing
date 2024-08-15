@@ -35,7 +35,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
     @Override
     public Result queryById(Long id) {
         String key = CACHE_SHOP_KEY + id;
-        // 1.从redis查询商铺缓存
+        // 1.从redis中查询商铺缓存
         String shopJson = stringRedisTemplate.opsForValue().get(key);
         // 2.判断是否存在
         if (StrUtil.isNotBlank(shopJson)){
